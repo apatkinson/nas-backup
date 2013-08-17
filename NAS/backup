@@ -1,0 +1,1 @@
+scp backupuser@domain.com:/home/backupuser/backupfolder/* /local/backup/folder/

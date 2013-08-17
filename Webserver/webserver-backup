@@ -1,0 +1,12 @@
+#!/bin/bash
+
+NOW=$(date +"%F")
+
+rm -f /home/backupuser/*
+
+mysqldump -A -u*MYSQLUSER* -p*MYSQLPASS* > /home/backupuser/mysql.sql
+tar czf /home/backupuser/backupfolder/$NOW-backup.tgz /var/www/* /home/backupuser/mysql.sql
+rm -f /home/backupuser/mysql.sql
+
+chown backupuser.backupuser /home/backupuser/backupfolder/$NOW-backup.tgz
+chmod 700 /home/backupuser/backupfolder/$NOW-backup.tgz
